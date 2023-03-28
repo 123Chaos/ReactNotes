@@ -5,11 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .title {
+        background-color: orange;
+        width: 200px;
+      }
+    </style>
   </head>
   <body>
-    <div id="test">
-      <h1></h1>
-    </div>
+    <div id="Demo"></div>
     <!-- 引入react核心库 -->
     <script type="text/javascript" src="../js/react.development.js"></script>
     <!-- 引入react-dom -->
@@ -20,12 +24,19 @@
     <!-- 引入babel -->
     <script type="text/javascript" src="../js/babel.min.js"></script>
     <script type="text/babel">
-      // 此处一定写bable 将jsx翻译为js
-      // 1.创建虚拟dom
-      // const VDOM = <h1>Hello,React</h1>; // 此处不写引号，因为不是字符串
-      const VDOM = React.createElement("h1", { id: "title" }, "Hello,React");
-      // 2.渲染虚拟dom
-      ReactDOM.render(VDOM, document.querySelector("#test"));
+      const myId = "teST";
+      const myData = "HelLo,World";
+      const VDOM = (
+        <h2 className="title" id={myId.toLowerCase()}>
+          <span style={{ color: "lightblue", fontSize: "20px" }}>
+            {myData.toLowerCase()}
+          </span>
+        </h2>
+      );
+      ReactDOM.render(VDOM, document.querySelector("#Demo"));
+      //   1.定义虚拟DOM不要使用""
+      //   2.标签中混入js时要使用{}
+      //   3.样式的类名指定使用className而不是class
     </script>
   </body>
 </html>
